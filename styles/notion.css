@@ -345,6 +345,12 @@
     backdrop-filter: saturate(180%) blur(8px);
 }
 
+@media (prefers-color-scheme: light) {
+    .dark-mode .notion-header {
+        box-shadow: inset 0 -1px 0 0 black;
+    }
+}
+
 
 /* Workaround for Firefox not supporting backdrop-filter yet */
 
