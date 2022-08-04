@@ -16,6 +16,7 @@ export const PageHead: React.FC<
   const rssFeedUrl = `${config.host}/feed`
 
   title = title ?? site?.name
+  title = title === site?.name ? title : `${title} | ${site?.name}`
   description = description ?? site?.description
 
   const socialImageUrl = getSocialImageUrl(pageId) || image

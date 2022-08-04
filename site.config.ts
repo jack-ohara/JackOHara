@@ -9,7 +9,7 @@ export default siteConfig({
   rootNotionSpaceId: null,
 
   // basic site info (required)
-  name: "Jack O'Hara",
+  name: "Jack O’Hara",
   domain: 'jackohara.io',
   author: "Jack O'Hara",
 
