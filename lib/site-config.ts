@@ -2,6 +2,7 @@ import * as types from './types'
 
 export interface SiteConfig {
   rootNotionPageId: string
+  homePageId?: string
   rootNotionSpaceId?: string
 
   name: string
@@ -32,6 +33,8 @@ export interface SiteConfig {
 
   navigationStyle?: types.NavigationStyle
   navigationLinks?: Array<NavigationLink>
+
+  pagesToIgnore?: string[] | null
 }
 
 export interface NavigationLink {

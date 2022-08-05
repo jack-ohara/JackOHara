@@ -3,6 +3,8 @@ import { siteConfig } from './lib/site-config'
 export default siteConfig({
   // the site's root Notion page (required)
   rootNotionPageId: '67fe519c20ff492eb5ea0631ac4f6594',
+  // used if you want to use a child page's content as the home page
+  homePageId: '7bc12ab38b32483f9dfdf44e16a855fb',
 
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
@@ -55,5 +57,8 @@ export default siteConfig({
       title: 'Contact',
       pageId: 'fb025c00a0f04e979d9236054055459b'
     }
+  ],
+  pagesToIgnore: [
+    '7bc12ab38b32483f9dfdf44e16a855fb'
   ]
 })

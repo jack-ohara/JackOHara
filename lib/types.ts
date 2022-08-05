@@ -26,6 +26,7 @@ export interface Site {
   domain: string
 
   rootNotionPageId: string
+  homePageId: string
   rootNotionSpaceId: string
 
   // settings

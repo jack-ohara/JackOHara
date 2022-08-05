@@ -5,6 +5,7 @@ import { getSiteMap } from 'lib/get-site-map'
 import { resolveNotionPage } from 'lib/resolve-notion-page'
 import { PageProps, Params } from 'lib/types'
 import { NotionPage } from 'components'
+import * as config from 'lib/config'
 
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (context) => {
   const rawPageId = context.params.pageId as string
@@ -32,17 +33,23 @@ export async function getStaticPaths() {
 
   const siteMap = await getSiteMap()
 
+  console.log('============================================')
+  console.log('siteMap: ', siteMap)
+  console.log('============================================')
+
+  const pageSlugs = Object.keys(siteMap.canonicalPageMap)
+    .filter(slug => !config.pagesToIgnore.includes(siteMap.canonicalPageMap[slug]))
+
   const staticPaths = {
-    paths: Object.keys(siteMap.canonicalPageMap).map((pageId) => ({
+    paths: pageSlugs.map((slug) => ({
       params: {
-        pageId
+        pageId: slug
       }
     })),
     // paths: [],
     fallback: true
   }
 
-  console.log(staticPaths.paths)
   return staticPaths
 }
 
